@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+template <typename T1, typename T2>
+class Rectangle {
+private:
+    T1 length;
+    T2 width;
+public:
+    Rectangle(T1 l, T2 w) : length(l), width(w) {}
+    void display() const {
+        cout << "Length: " << length << ", Width: " << width << endl;
+    }
+    auto calculateArea() const {
+        return length * width; 
+    }
+};
+int main() {
+    Rectangle<int, int> intRect1(10, 20);
+    intRect1.display();
+    cout << "Area = length*width = " << intRect1.calculateArea() << endl << endl;
+    Rectangle<double, double> doubleRect1(5.3, 2.3);
+    doubleRect1.display();
+    cout << "Area = length*width = " << doubleRect1.calculateArea() << endl << endl;
+    Rectangle<int, double> mixedRect1(10, 2.10);
+    mixedRect1.display();
+    cout << "Area = length*width = " << mixedRect1.calculateArea() << endl << endl;
+    Rectangle<double, int> mixedRect2(5.0, 2);
+    mixedRect2.display();
+    cout << "Area = length*width = " << mixedRect2.calculateArea() << endl << endl;
+    return 0;
+}
